@@ -2,7 +2,7 @@ var cnt = 0; //счетчик цикла
 var fizz="fizz";
 var buzz="buzz";
 
-while (cnt <= 100) {
+while (cnt < 100) {
 	cnt++;
 
 	if (cnt % 3 == 0 && cnt % 5 == 0) 
