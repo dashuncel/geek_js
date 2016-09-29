@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html"; charset=UTF-8>
+	<title></title>
+</head>
+<body>
+
+	<script>
+		function minnum(a, b)
+		{
+			return Math.min(a,b);
+		}
+		function InputNum(a)
+		{
+			var num = prompt("Введите число №" + a);
+			return num;
+		}	
+		var num1 = InputNum(1);
+		var num2 = InputNum(2);
+		if (isNaN(num1) || isNaN(num2))
+ 		{
+ 			console.log("Одно из введенных значений - не число!");
+ 		}
+ 		else
+ 		{
+ 			console.log("Минимальное число из двух (" + num1 + "," + num2 + ")=" + minnum(num1,num2));
+ 		}
+	</script>
+
+</body>
+</html>
