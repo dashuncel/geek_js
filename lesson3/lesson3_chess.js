@@ -5,7 +5,14 @@ for (counter1= 1; counter1 <= 8; counter1++)
 { 
 	for (counter2 = 1; counter2 <= 8; counter2++)
 	{
-		ResStr = ResStr + "# ";
+		if (counter1 % 2 == 0) 
+		{
+			ResStr = ResStr + "# ";
+		}
+		else 
+		{
+			ResStr = ResStr + " #";	
+		}
 	}
 	ResStr = ResStr + "\n";
 }
