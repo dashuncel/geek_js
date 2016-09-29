@@ -7,11 +7,7 @@
 <body>
 	<script>
 		function countBs(strin) {
-			var totb = 0;
-			for (var cnt=0; cnt<strin.length; cnt++) {
-				if (strin.charAt(cnt)=="B") {totb++};
-			}
-			return totb;
+			return countChar(strin,"B");
 		}
 
 		function countChar(strin,wch) {
