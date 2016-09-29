@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html"; charset=UTF-8>
+	<title></title>
+</head>
+<body>
+	<script>
+		function countBs(strin) {
+			var totb = 0;
+			for (var cnt=0; cnt<strin.length; cnt++) {
+				if (strin.charAt(cnt)=="B") {totb++};
+			}
+			return totb;
+		}
+
+		function countChar(strin,wch) {
+			var totb = 0;
+			for (var cnt=0; cnt<strin.length; cnt++) {
+				if (strin.charAt(cnt)==wch) {totb++};
+			}
+			return totb;
+		}
+
+		var teststr=prompt("Введите строку для анализа");
+		console.log("Количество символов 'B' в строке '" + teststr + "'=" + countBs(teststr));
+		var whichsym=prompt("Какой символ ищем?");
+		console.log("Количество символов '" + whichsym.charAt(0) + "' в строке '" + teststr + "'=" + countChar(teststr,whichsym.charAt(0)));
+	</script>
+</body>
+</html>
