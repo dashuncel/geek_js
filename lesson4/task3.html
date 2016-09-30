@@ -10,10 +10,9 @@
 			number = Math.abs(number);
 		    return (number <= 1) ? (number==0) : isEven(number - 2);			
 		}
-
-
+		
 		var num = prompt("Введите число");	
-		if (isFinite(num)) {
+		if (isFinite(num) && num != null) {
 			console.log("Четное ли число " + num + "? " + isEven(num));
 		} 	
 	</script>
