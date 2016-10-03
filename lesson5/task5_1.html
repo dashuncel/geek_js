@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html"; charset=UTF-8>
+	<title></title>
+</head>
+<body>
+	<script>
+	/*написать функцию преобразования цвета из 10ного представления в 16тиричное.
+	функция принимает три числа и возвращает строковы хеш*/	
+		function getcolorhesh(color) {
+		 	return "#" + ToHesh(color.red) + ToHesh(color.green) + ToHesh(color.green);
+			
+			 function ToHesh(num) {
+ 		   		var hesh = Number(num).toString(16);
+ 		   		return hesh.length == 1 ? "0" + hesh : hesh;
+			}
+		}
+
+		function putrgb(color) {
+			var output="";
+			for (var property in color) {
+				output += color[property] +',';
+			}
+			return output.substring(0,output.length - 1);
+		}
+		
+ 		var color = new Object();
+ 		color.red=prompt("Введите красный");
+ 		color.green=prompt("Введите зеленый");
+ 		color.blue=prompt("Введите синий");
+
+ 		if (isNaN(color.red) || isNaN(color.green) || isNaN(color.blue)) {
+ 			alert("Одно из введенных значений - не число");
+ 		}
+ 		else {
+ 			alert("rgb(" + putrgb(color) + ")= " + getcolorhesh(color));
+ 		}
+		
+	</script>
+</body>
+</html>
