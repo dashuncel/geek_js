@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html"; charset=UTF-8>
+	<title></title>
+</head>
+<body>
+	<script>
+	/*2. реализовать функцию преобразующую число в объект с тремя свойствами: сотни, десятки, единицы*/
+	/*работает для целого числа с любым количеством разрядов*/
+		function numToObj(num) {
+			var obj = new Object(); 
+
+			num=Math.floor(num);
+
+			for (var cnt = 1; cnt <= String(num).length;cnt++) {
+				obj["pos" + cnt]=GetPos(num,cnt);
+			}
+
+			function GetPos(num1, num2) {
+				return Math.floor(num1 / Math.pow(10,num2-1)) % 10;
+			}
+
+			console.log(obj);
+			return obj;
+		}	
+
+	/* (*)реализовать функцию objectToQueryString(object) которая принимает аргументом
+	объект, возвращает строку 
+	*/
+		function objectToQueryString(object) {
+			var output="";
+			for (var property in object) {
+				output += property + ":" + object[property] + ' ';
+			}
+			return output;
+		}
+
+		var num=0;
+		while (num < 100 || num > 99999)	{	
+			num=parseInt(prompt("введите число"));
+		}
+
+		console.log(objectToQueryString(numToObj(num)));
+
+	</script>
+
+
+
+</body>
+</html>
