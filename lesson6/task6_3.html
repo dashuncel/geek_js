@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html"; charset=UTF-8>
+	<title></title>
+</head>
+<body>
+	<script>
+		var user = {
+			name: 'Sergey',
+			age: 30,
+			email: 'sergey@gmail.com',
+			friends: ['Sveta', 'Artem']
+		}
+		console.log(pick(user, ['name', 'age', 'email','test'])); // {name: 'Sergey'}
+		console.log(pick(user, ['name', 'second-name'])); // {name: 'Sergey'}
+		console.log(pick(user, ['name', 'friends'])); // {name: 'Sergey', friends:['Sveta', 'Artem']}
+
+		function pick(UsObj, ArrKey) {
+			var NewObj = new Object(); 
+			var NewKey = ArrKey.filter(function(item,index,array) {return UsObj.hasOwnProperty(item)});
+			
+			for (var prop in UsObj) {
+				if (NewKey.indexOf(prop) > -1) {NewObj[prop]=UsObj[prop]};
+			}
+			return NewObj;
+		}
+	</script>
+</body>
+</html>
