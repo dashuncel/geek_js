@@ -1,0 +1,84 @@
+</!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html"; charset=UTF-8>
+	<title>Шахматная доска</title>
+</head>
+<body>
+	<script>
+		//ШАХМАТНАЯ МАТРИЦА:
+		var chessmatrix = {
+			row1 : ["ladya","horse","oficer","king","kween","oficer","horse","ladya"],
+			row2 : ["peshka","peshka","peshka","peshka","peshka","peshka","peshka","peshka"],
+			row3 : ["","","","","","","",""],
+			row4 : ["","","","","","","",""],
+			row5 : ["","","","","","","",""],
+			row6 : ["","","","","","","",""],
+			row7 : ["peshka","peshka","peshka","peshka","peshka","peshka","peshka","peshka"],
+			row8 : ["ladya","horse","oficer","king","kween","oficer","horse","ladya"]
+		}
+
+		function addfullcell (val, wid, hi, bgcolor, i, j){
+			document.write("<td bgcolor=" + bgcolor + " width=" + wid + " height= " + hi + ' align=center>');
+			document.write('<font color=black size=1px>');
+			document.write(val);
+			//document.write(Setbullit(i,j));
+			document.write(Setimg(i,j));
+			document.write("</font></td>");
+
+			//устанавливает буквенное значение:
+			function Setbullit(i,j) {
+
+				return (i == 0 || j == 0) ? "" : chessmatrix["row" + i][j - 1];
+			}
+
+			//устанавливает картинку:
+			function Setimg (i,j) {
+				var img = Setbullit(i,j);
+				if (img=="") return "";
+				if (i > 6) 
+					img += "_black";
+			 	else 
+			 		img += "_white";
+				return '<img src=img/' + img + '.png></img>';				
+			}
+		}
+		//---РИСУЕМ ДОСКУ---
+		var array=["a","b","c","d","e","f","g","h"];
+		document.write("<table border=2>");
+		
+		document.write("<tr>");
+		addfullcell("",20,20,"white",0,0); //добавляем пустую ячейку
+		for(var j=0;j<8;j++){
+			addfullcell(array[j],70,20,"white",0,0); //добавляем пустую строку с буквенными подписями
+		}
+		addfullcell("",20,20,"white",0,0); //добавляем пустую ячейку
+		document.write("</tr>");
+					
+		for(var i=8;i>0;i--){
+			document.write("<tr>");
+			addfullcell(i,20,70,"white",0,0); //добавляем пустую ячейку
+			for(var j=1;j<9;j++){
+				if((i%2==0 && j%2==0) || (i%2!=0 && j%2!=0)){
+					addfullcell("",20,70,"white",i,j); //добавляем пустую ячейку
+				}	
+				else{
+					addfullcell("",20,70,"gray",i,j); //добавляем пустую ячейку
+					}
+   			}
+   			addfullcell(i,20,70,"white",0,0); //добавляем пустую ячейку
+   			document.write("</tr>");
+  		}
+
+		document.write("<tr>");
+		addfullcell("",20,20,"white",0,0); //добавляем пустую ячейку
+		for(var j=0;j<8;j++){
+			addfullcell(array[j],70,20,"white",0,0); //добавляем пустую строку с буквенными подписями
+		}
+		addfullcell("",20,20,"white",0,0); //добавляем пустую ячейку
+		document.write("</tr>");
+		document.write("</table>");
+
+	</script>
+</body>
+</html
